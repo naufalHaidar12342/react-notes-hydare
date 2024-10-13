@@ -1,17 +1,52 @@
-import { Search, SearchSharp } from "@mui/icons-material";
+import { SearchSharp } from "@mui/icons-material";
 import { Input } from "@nextui-org/input";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 SearchNotesForm.propTypes = {
-	notesTitle: PropTypes.string.isRequired,
+	notesTitleFunction: PropTypes.func,
 };
-export default function SearchNotesForm({ notesTitle }) {
+export default function SearchNotesForm({ notesTitleFunction }) {
+	const [titleSearched, setTitleSearched] = useState("");
+	const [invalidTitle, setInvalidTitle] = useState(false);
+	const [invalidTitleMessage, setInvalidTitleMessage] = useState("");
+
+	const onTitleSearchedChange = (events) => {
+		setTitleSearched(events.target.value);
+		let observedTitleLength = events.target.value.length;
+		if (observedTitleLength === 0) {
+			setInvalidTitle(true);
+			setInvalidTitleMessage("Judul catatan yang dicari tidak boleh kosong.");
+		} else {
+			setInvalidTitle(false);
+			setInvalidTitleMessage("");
+		}
+	};
+
+	const onSearchNotesTitleFormSubmit = (events) => {
+		events.preventDefault();
+		setTitleSearched(events.target.value);
+		notesTitleFunction(titleSearched);
+		console.log(`Judul catatan yang dicari: ${titleSearched}`);
+	};
 	return (
-		<div className="flex items-center gap-2">
-			<SearchSharp fontSize="medium" />
-			<h2 className="text-2xl font-medium">
-				Hasil pencarian untuk: {notesTitle}
-			</h2>
+		<div className="flex flex-col gap-2">
+			<h2 className="font-medium text-lg">Cari catatan</h2>
+			<span className="font-light mb-2">
+				Cari catatan yang sudah ada berdasarkan judul catatannya
+			</span>
+			<Input
+				type="text"
+				size="md"
+				variant="faded"
+				label="Cari"
+				value={titleSearched}
+				onChange={onTitleSearchedChange}
+				invalid={invalidTitle}
+				errorMessage={invalidTitleMessage}
+				onKeyUp={onSearchNotesTitleFormSubmit}
+				endContent={<SearchSharp fontSize="medium" />}
+			/>
 		</div>
 	);
 }

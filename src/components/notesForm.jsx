@@ -49,6 +49,9 @@ export default function NotesForm({ newNotesHandler }) {
 	};
 	const onNotesFormSubmit = (events) => {
 		events.preventDefault();
+		setNoteTitleInput(events.target.value);
+		setNoteContentInput(events.target.value);
+		newNotesHandler(noteTitleInput, noteContentInput);
 	};
 	return (
 		<form className="flex flex-col gap-5" onSubmit={onNotesFormSubmit}>

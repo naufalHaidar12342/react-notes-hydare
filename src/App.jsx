@@ -5,6 +5,7 @@ import { useState } from "react";
 import getInitialNotes from "./utilities/initial-notes.js";
 import TimestampGenerator from "./utilities/timestamp-generator.js";
 import TimestampISOFormatGenerator from "./utilities/timestamp-isoformat-generator.js";
+import SearchNotesForm from "./components/searchNotesForm.jsx";
 
 export default function App() {
 	const [notes, setNotes] = useState(getInitialNotes());
@@ -44,9 +45,17 @@ export default function App() {
 		};
 		setNotes([...notes, newNote]);
 	};
+
+	const onSearchNotesHandler = (notesTitle) => {
+		const searchedNotes = notes.filter((note) =>
+			note.title.toLowerCase().includes(notesTitle.toLowerCase())
+		);
+		console.log("searched Notes=", searchedNotes);
+	};
 	return (
 		<div className="flex flex-col py-10 gap-10">
-			<NotesForm />
+			<NotesForm newNotesHandler={onNewNoteHandler} />
+			<SearchNotesForm notesTitleFunction={onSearchNotesHandler} />
 			<ActiveNotesBody
 				listOfActiveNotes={notes}
 				activeNotesFunction={onActivateNote}
