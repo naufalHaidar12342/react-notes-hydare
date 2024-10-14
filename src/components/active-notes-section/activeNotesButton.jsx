@@ -8,6 +8,8 @@ ActiveNotesButton.propTypes = {
 export default function ActiveNotesButton({ notesId, onActivate }) {
 	return (
 		<button
+			title="Aktifkan catatan"
+			type="button"
 			className="flex items-center gap-2"
 			onClick={() => onActivate(notesId)}
 		>

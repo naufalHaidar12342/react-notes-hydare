@@ -34,7 +34,7 @@ export default function NotesItem({
 			<h3 className="font-medium">{noteTitle}</h3>
 			<span>{TimestampToReadableDate(noteCreatedAt)}</span>
 			<p className="mt-4">{noteContent}</p>
-			<div className="flex my-6 gap-4">
+			<div className="flex flex-col my-6 gap-4">
 				{noteArchiveStatus === true ? (
 					<ActiveNotesButton
 						notesId={noteId}

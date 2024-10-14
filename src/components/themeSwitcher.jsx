@@ -17,6 +17,7 @@ export default function ThemeSwitcher() {
 		<div>
 			{theme === "dark" ? (
 				<Button
+					title="Switch to light theme"
 					startContent={<Brightness7SharpIcon className="" />}
 					onPress={() => setTheme("light")}
 					className=""
@@ -26,6 +27,7 @@ export default function ThemeSwitcher() {
 				></Button>
 			) : (
 				<Button
+					title="Switch to dark theme"
 					startContent={<NightsStaySharpIcon />}
 					onPress={() => setTheme("dark")}
 					radius="sm"

@@ -56,11 +56,13 @@ export default function NotesForm({ newNotesHandler }) {
 	return (
 		<form className="flex flex-col gap-5" onSubmit={onNotesFormSubmit}>
 			<Input
+				required
 				type="text"
 				label="Judul catatan"
 				variant="bordered"
 				size="lg"
 				isRequired
+				placeholder="Misal: Belanja minggu ini"
 				description={`Judul catatan dengan maksimal 50 karakter/digit. Karakter tersisa: ${titleCharactersUntilMax}`}
 				isClearable
 				onChange={onTitleChange}
@@ -69,10 +71,12 @@ export default function NotesForm({ newNotesHandler }) {
 				errorMessage={invalidNoteTitleMessage}
 			/>
 			<Textarea
+				required
 				isRequired
 				variant="bordered"
 				size="lg"
 				maxRows={4}
+				placeholder="Misal: Beli sayur dan buah-buahan di pasar"
 				description={`Isi catatan Anda`}
 				onChange={onNotesContentChange}
 				value={noteContentInput}

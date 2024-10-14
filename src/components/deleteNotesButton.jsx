@@ -7,9 +7,14 @@ DeleteNotesButton.propTypes = {
 };
 export default function DeleteNotesButton({ notesId, onDelete }) {
 	return (
-		<button className="flex items-center" onClick={() => onDelete(notesId)}>
+		<button
+			title="Hapus catatan"
+			type="button"
+			className="flex items-center"
+			onClick={() => onDelete(notesId)}
+		>
 			<DeleteForeverSharp fontSize="medium" />
-			Hapus
+			Hapus catatan
 		</button>
 	);
 }

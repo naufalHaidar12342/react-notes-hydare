@@ -9,11 +9,13 @@ ArchiveNotesButton.propTypes = {
 export default function ArchiveNotesButton({ notesId, onArchive }) {
 	return (
 		<button
+			title="Arsipkan catatan"
+			type="button"
 			className="flex items-center gap-2"
 			onClick={() => onArchive(notesId)}
 		>
 			<Inventory2Sharp fontSize="medium" />
-			Arsipkan
+			Arsipkan catatan
 		</button>
 	);
 }
