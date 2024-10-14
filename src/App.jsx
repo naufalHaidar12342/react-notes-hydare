@@ -46,6 +46,7 @@ export default function App() {
 	const onDeleteNote = (notesId) => {
 		const updatedNotes = notes.filter((note) => note.id !== notesId);
 		setNotes(updatedNotes);
+		toast.success("Catatan berhasil dihapus");
 	};
 
 	const onNewNoteHandler = (notesTitle, notesContent) => {
