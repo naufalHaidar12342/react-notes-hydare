@@ -35,18 +35,20 @@ export default function SearchNotesForm({ notesTitleFunction }) {
 			<span className="font-light mb-2">
 				Cari catatan yang sudah ada berdasarkan judul catatannya
 			</span>
-			<Input
-				type="text"
-				size="md"
-				variant="faded"
-				label="Cari"
-				value={titleSearched}
-				onChange={onTitleSearchedChange}
-				invalid={invalidTitle}
-				errorMessage={invalidTitleMessage}
-				onKeyUp={onSearchNotesTitleFormSubmit}
-				endContent={<SearchSharp fontSize="medium" />}
-			/>
+			<form>
+				<Input
+					type="text"
+					size="md"
+					variant="faded"
+					label="Cari"
+					value={titleSearched}
+					onChange={onTitleSearchedChange}
+					onKeyUp={onSearchNotesTitleFormSubmit}
+					invalid={invalidTitle}
+					errorMessage={invalidTitleMessage}
+					endContent={<SearchSharp fontSize="medium" />}
+				/>
+			</form>
 		</div>
 	);
 }

@@ -46,11 +46,15 @@ export default function App() {
 		setNotes([...notes, newNote]);
 	};
 
-	const onSearchNotesHandler = (notesTitle) => {
+	const onSearchNotesHandler = (notesTitle, previousState) => {
+		console.log("notesTitle=", notesTitle);
 		const searchedNotes = notes.filter((note) =>
 			note.title.toLowerCase().includes(notesTitle.toLowerCase())
 		);
-		console.log("searched Notes=", searchedNotes);
+		if (searchedNotes.length === 0) {
+			setNotes([...previousState]);
+		}
+		setNotes(searchedNotes);
 	};
 	return (
 		<div className="flex flex-col py-10 gap-10">

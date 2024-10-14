@@ -24,6 +24,8 @@ export default function NotesItem({
 	activateNoteFunction,
 	archiveNoteFunction,
 }) {
+	// console.log("notes id=", noteId);
+
 	return (
 		<div
 			className="flex flex-col p-4 border-2 border-notes-dark rounded-lg dark:border-notes-light hover:border-notes-secondary dark:hover:border-notes-primary hover:cursor-default hover:-translate-x-2 hover:-translate-y-2 hover:transition hover:ease-in-out"

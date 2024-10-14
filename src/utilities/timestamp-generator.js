@@ -1,3 +1,3 @@
 export default function TimestampGenerator() {
-	return new Date();
+	return new Date().getTime();
 }
