@@ -14,7 +14,7 @@ createRoot(document.getElementById("root")).render(
 			<Header />
 			<Toaster />
 			<HelmetProvider>
-				<Helmet>
+				<Helmet prioritizeSeoTags>
 					<meta property="og:title" content="React Catatan Pribadi" />
 					<meta
 						property="og:description"
