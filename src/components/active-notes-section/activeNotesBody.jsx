@@ -26,6 +26,17 @@ export default function ActiveNotesBody({
 	const activeNotesFromProps = listOfActiveNotes.filter(
 		(note) => note.archived === false
 	);
+	if (activeNotesFromProps.length === 0) {
+		return (
+			<div className="flex flex-col">
+				<div className="flex items-center gap-2">
+					<BeenhereSharp fontSize="medium" />
+					<h2 className="text-2xl font-medium">Catatan aktif</h2>
+				</div>
+				<span>Saat ini catatan aktif masih kosong</span>
+			</div>
+		);
+	}
 	return (
 		<div className="flex flex-col">
 			<div className="flex items-center gap-2">

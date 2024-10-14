@@ -26,6 +26,17 @@ export default function ArchiveNotesBody({
 	let archiveNotesFromProps = listOfArchiveNotes.filter(
 		(note) => note.archived === true
 	);
+	if (archiveNotesFromProps.length === 0) {
+		return (
+			<div className="flex flex-col">
+				<div className="flex items-center gap-2">
+					<Inventory2Sharp fontSize="medium" />
+					<h2 className="text-2xl font-medium">Arsip</h2>
+				</div>
+				<span className="mt-5">Saat ini arsip masih kosong</span>
+			</div>
+		);
+	}
 	return (
 		<div className="flex flex-col">
 			<div className="flex items-center gap-2">
