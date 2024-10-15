@@ -9,7 +9,7 @@ import SearchNotesForm from "./components/searchNotesForm.jsx";
 import toast from "react-hot-toast";
 
 export default function App() {
-	const [notes, setNotes] = useState(getInitialNotes());
+	const [notes, setNotes] = useState(getInitialNotes);
 	const [notesTitleSearched, setNotesTitleSearched] = useState("");
 
 	const searchedNotes = notes.filter((note) =>
